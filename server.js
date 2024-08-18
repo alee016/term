@@ -5,7 +5,9 @@ const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const routes = require('./routes/routes');
+const session = require('express-session');
 
+const app = express();
 const credentials = require('./credentials');
 
 // Set up the database connection
@@ -19,7 +21,13 @@ mongoose.connect(dbUrl, {
     console.error('Database connection error:', err);
 });
 
-const app = express();
+app.use(session({
+    secret: 'term_pro', 
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } 
+}));
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
