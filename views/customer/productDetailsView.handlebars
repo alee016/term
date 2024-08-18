@@ -1,0 +1,22 @@
+<h1>{{product.name}}</h1>
+<img src="/images/{{product.image}}" alt="{{product.name}}" width="200">
+<p>Price: ${{product.price}}</p>
+<h2>Available Sizes:</h2>
+<ul>
+  {{#each product.sizes}}
+    <li>{{size}}: {{quantity}} in stock</li>
+  {{/each}}
+</ul>
+<form method="post" action="/cart/add">
+  <input type="hidden" name="productId" value="{{product._id}}">
+  <label for="size">Select Size:</label>
+  <select id="size" name="size" required>
+    {{#each product.sizes}}
+      <option value="{{size}}">{{size}}</option>
+    {{/each}}
+  </select>
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" name="quantity" min="1" required>
+  <button type="submit">Add to Cart</button>
+</form>
+<a href="/products">Back to Products</a>

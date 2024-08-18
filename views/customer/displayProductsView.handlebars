@@ -1,0 +1,15 @@
+<h1>Product List</h1>
+{{#if products.length}}
+  <ul>
+    {{#each products}}
+      <li>
+        <img src="/images/{{image}}" alt="{{name}}" width="50">
+        {{name}} - ${{price}} 
+        <a href="/products/{{_id}}">View Details</a>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No products available.</p>
+{{/if}}
+<a href="/cart">View Cart</a>

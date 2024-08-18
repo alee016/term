@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<a href="/admin/products/add">Add New Product</a>
+<div class="admin-product-list">
+    {{#each products}}
+    <div class="admin-product-item">
+        <h2>{{this.name}}</h2>
+        <a href="/admin/products/edit/{{this._id}}">Edit</a>
+        <form method="post" action="/admin/products/delete/{{this._id}}" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+    {{/each}}
+</div>

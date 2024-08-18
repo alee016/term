@@ -1,0 +1,18 @@
+<h1>Your Orders</h1>
+{{#if orders.length}}
+  <ul>
+    {{#each orders}}
+      <li>
+        Order ID: {{_id}} - Total: ${{total}} - Date: {{date}}
+        <ul>
+          {{#each items}}
+            <li>{{product.name}} - {{size}} - Quantity: {{quantity}} - Price: ${{price}}</li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>You have no orders.</p>
+{{/if}}
+<a href="/products">Back to Products</a>

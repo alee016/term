@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<div class="admin-customer-list">
+    {{#each customers}}
+    <div class="admin-customer-item">
+        <h2>{{this.firstName}} {{this.lastName}}</h2>
+        <ul>
+            {{#each this.orders}}
+            <li>{{this.product.name}} - Size: {{this.size}} - Quantity: {{this.quantity}}</li>
+            {{/each}}
+        </ul>
+        <a href="/admin/orders/edit/{{this._id}}">Edit Order</a>
+        <form method="post" action="/admin/orders/delete/{{this._id}}" style="display:inline;">
+            <button type="submit">Delete Order</button>
+        </form>
+    </div>
+    {{/each}}
+</div>
