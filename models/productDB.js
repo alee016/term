@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
-const credentials = require('../credentials');
 
-const dbUrl = 'mongodb+srv://' + credentials.username + 
-    ':' + credentials.password + '@' + credentials.host + '/' + credentials.database;
-
-let connection = null;
-let model = null;
-
-const Schema = mongoose.Schema;
-
-let productSchema = new Schema({
+const productSchema = new mongoose.Schema({
     name: { type: String, required: true },
     image: { type: String, required: true },
     price: { type: Number, required: true },
@@ -21,13 +12,5 @@ let productSchema = new Schema({
     collection: 'products'
 });
 
-module.exports = {
-    getModel: () => {
-        if (connection == null) {
-            console.log("Creating connection and model...");
-            connection = mongoose.createConnection(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
-            model = connection.model('ProductModel', productSchema);
-        }
-        return model;
-    }
-};
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product;
