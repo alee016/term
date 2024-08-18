@@ -1,5 +1,5 @@
 const Order = require('../models/orderDB.js');
-const ProductDB = require('../models/productDB.js');
+const Product = require('../models/productDB.js');
 
 module.exports = async (req, res) => {
     let cart = req.session.cart || [];

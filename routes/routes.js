@@ -3,7 +3,6 @@ var router = express.Router();
 
 // Customer routes
 var displayProducts = require("../controllers/displayProducts")
-console.log("displayProducts:", typeof displayProducts); 
 var productDetails = require("../controllers/productDetails");
 var addToCart = require('../controllers/addToCart');
 var viewCart = require('../controllers/viewCart');
@@ -20,12 +19,12 @@ var adminEditOrder = require('../controllers/admin/adminEditOrder');
 var adminDeleteOrder = require('../controllers/admin/adminDeleteOrder');
 
 // Customer routes
-router.get('/products', displayProducts);
-router.get('/products/:id', productDetails);
+router.get('/product', displayProducts);
+router.get('/product/:id', productDetails);
 router.post('/cart/add', addToCart);
 router.get('/cart', viewCart);
 router.post('/order/submit', submitOrder);
-router.get('/orders', viewOrders);
+router.get('/order', viewOrders);
 
 // Admin routes
 router.get('/admin/products', adminProducts);

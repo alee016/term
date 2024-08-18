@@ -1,6 +1,5 @@
-const ProductDB = require('../models/productDB.js');
+const Product = require('../models/productDB.js');
 const Customer = require('../models/customerDB.js');
-const Order = require('../models/orderDB.js');
 
 // Admin dashboard
 exports.getDashboard = (req, res) => {

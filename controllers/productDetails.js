@@ -1,4 +1,4 @@
-const ProductDB = require('../models/customerDB');
+const Product = require('../models/customerDB');
 
 module.exports = async (req, res) => {
     let product = await Product.findById(req.params.id);
